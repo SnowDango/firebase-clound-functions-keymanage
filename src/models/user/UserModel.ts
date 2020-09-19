@@ -9,7 +9,8 @@ export type User = {
     google_uid:string,
     name:string,
     email:string,
-    tokens:string[]
+    tokens:string[],
+    join_channels:string[]
 }
 
 const firestoreSimple = new FirestoreSimple(firestore);
@@ -20,16 +21,18 @@ const dao = firestoreSimple.collection<User>({
             google_uid:user.google_uid,
             name:user.name,
             email:user.email,
-            tokens:user.tokens
+            tokens:user.tokens,
+            join_channels:user.join_channels
         }
     },
-    decode:(doc) =>{
+    decode:(doc) => {
         return {
-            id:doc.id,
-            google_uid:doc.google_uid,
-            name:doc.name,
-            email:doc.email,
-            tokens:doc.tokens
+            id: doc.id,
+            google_uid: doc.google_uid,
+            name: doc.name,
+            email: doc.email,
+            tokens: doc.tokens,
+            join_channels:doc.join_channels
         }
     }
 });
@@ -42,7 +45,7 @@ export default class UserModel{
         email:string,
         name:string
     ) :Promise<boolean> => {
-        const _data = {google_uid:uid,name:name,email:email,tokens:[token]};
+        const _data = {google_uid:uid,name:name,email:email,tokens:[token],join_channels:[]};
         const _id = await dao.add(_data);
         return !!_id;
     }
@@ -53,6 +56,14 @@ export default class UserModel{
         const _usersSnap = await dao.where("google_uid","==",uid).fetch();
         console.log(_usersSnap[0]);
         return _usersSnap[0];
+    }
+
+    getUserDataList = async (
+        uids: string[]
+    ):Promise<User[] | undefined> => {
+        const  _usersSnap = await dao.where("google_uid","in", uids).fetch();
+        console.log(_usersSnap);
+        return _usersSnap;
     }
 
     /*async update(){
