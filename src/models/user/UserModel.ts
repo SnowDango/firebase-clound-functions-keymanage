@@ -79,12 +79,34 @@ export default class UserModel{
         field:string,
         value:string
     ):Promise<number> => {
-        const id = await this.getId(uid);
-        if(id !== undefined ) {
+        const _id = await this.getId(uid);
+        if(_id !== undefined ) {
             try {
                 await dao.update({
-                    id: id,
+                    id: _id,
                     [field]: FieldValue.arrayUnion(value)
+                });
+                return 0;
+            }catch (e) {
+                console.error(e.toString());
+                return 1;
+            }
+        }else{
+            return 2;
+        }
+    }
+
+    removeValueToList = async (
+        uid:string,
+        field:string,
+        value:string
+    ):Promise<number> => {
+        const _id = await this.getId(uid);
+        if(_id !== undefined){
+            try{
+                await dao.update({
+                    id: _id,
+                    [field]:FieldValue.arrayRemove(value)
                 });
                 return 0;
             }catch (e) {

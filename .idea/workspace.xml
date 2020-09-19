@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/user/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user/UserService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +58,7 @@
       <workItem from="1600416311102" duration="546000" />
       <workItem from="1600492553284" duration="13458000" />
       <workItem from="1600508950728" duration="116000" />
+      <workItem from="1600527653969" duration="874000" />
     </task>
     <task id="LOCAL-00001" summary="[add] UserModel.tsにuidListで一括取得できる関数の実装">
       <created>1600504090757</created>
@@ -85,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600507418206</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[update] package-lock.json node-forge version">
+      <created>1600527795529</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600527795529</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,13 +105,14 @@
     <MESSAGE value="[add] UserModel.tsにuidListで一括取得できる関数の実装" />
     <MESSAGE value="[add] 更新のためのIDの取得" />
     <MESSAGE value="[add] フィールドの要素を追加する関数" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] フィールドの要素を追加する関数" />
+    <MESSAGE value="[update] package-lock.json node-forge version" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update] package-lock.json node-forge version" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="25" key="CommitChangelistDialog2" timestamp="1600507418118">
+    <state x="297" y="25" key="CommitChangelistDialog2" timestamp="1600527795315">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="297" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600507418118" />
+    <state x="297" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600527795315" />
     <state x="590" y="354" key="Github.ShareDialog" timestamp="1600499701344">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -110,10 +121,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="501" y="162" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1600499799470" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1600508972727">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1600527804874">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600508972727" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600527804874" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600493362149">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

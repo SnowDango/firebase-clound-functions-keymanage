@@ -28,6 +28,9 @@ exports.userRoutes = (req:any,res:any) => {
         case UserRouteCode.ADD_TOKEN:
             service.addToken(body,res).then().catch();
             break;
+        case UserRouteCode.REMOVE_TOKEN:
+            service.removeToken(body,res).then().catch();
+            break;
     }
 }
 exports.channelRoutes = (req:any,res:any) => {

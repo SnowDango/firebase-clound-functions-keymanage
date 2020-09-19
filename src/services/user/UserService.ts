@@ -21,24 +21,12 @@ export default class UserService {
         if (!_userIsExist) {
             const _result = await model.create(uid,token,email,name);
             if (_result) {
-                response.send(
-                    res,
-                    responseCode.SUCCESS,
-                    null,
-                    null);
+                response.send(res, responseCode.SUCCESS, null, null);
             } else {
-                response.send(
-                    res,
-                    responseCode.FAILED,
-                    failedCode.DATABASE_ERROR,
-                    null);
+                response.send(res, responseCode.FAILED, failedCode.DATABASE_ERROR, null);
             }
         } else {
-            response.send(
-                res,
-                responseCode.FAILED,
-                failedCode.ALREADY_EXIST,
-                null);
+            response.send(res, responseCode.FAILED, failedCode.ALREADY_EXIST, null);
         }
     }
 
@@ -65,10 +53,24 @@ export default class UserService {
         }
     }
 
-    /*async removeToken(){
-
+    removeToken = async (body:any,res:any) => {
+        const uid = body.uid;
+        const token = body.token;
+        const _removeResult = await model.removeValueToList(uid,"tokens",token);
+        switch (_removeResult) {
+            case 0:
+                response.send(res, responseCode.SUCCESS, null, null);
+                break;
+            case 1:
+                response.send(res, responseCode.FAILED, failedCode.DATABASE_ERROR, null);
+                break;
+            case 2:
+                response.send(res, responseCode.FAILED, failedCode.USER_NOT_FOUND, null);
+                break;
+        }
     }
 
+    /*
     async updateToken(){
 
     }
