@@ -66,6 +66,13 @@ export default class UserModel{
         return _usersSnap;
     }
 
+    getId = async (
+        uid:string
+    ):Promise<string|undefined> => {
+        const _userSnap = await dao.where("google_uid","==",uid).limit(1).fetch();
+        return _userSnap[0].id;
+    }
+
     /*async update(){
 
     }
