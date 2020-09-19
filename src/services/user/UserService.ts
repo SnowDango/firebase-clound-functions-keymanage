@@ -40,19 +40,13 @@ export default class UserService {
         }
     }
 
-    isExist = async (body: any): Promise<boolean> => {
+    private isExist = async (body: any): Promise<boolean> => {
         const uid = body.uid;
         const _user = await model.getUserDataSingle(uid);
         return _user !== undefined;
     }
 
-
-
-    /*async addToken(){
-
-    }
-
-    async removeToken(){
+    /*async removeToken(){
 
     }
 

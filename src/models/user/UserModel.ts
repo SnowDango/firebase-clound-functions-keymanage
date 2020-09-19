@@ -61,7 +61,7 @@ export default class UserModel{
     getUserDataList = async (
         uids: string[]
     ):Promise<User[] | undefined> => {
-        const  _usersSnap = await dao.where("google_uid","in", uids).fetch();
+        const  _usersSnap = await dao.where("google_uid","in", uids).limit(1).fetch();
         console.log(_usersSnap);
         return _usersSnap;
     }
