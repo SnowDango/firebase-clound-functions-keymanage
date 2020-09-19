@@ -3,6 +3,7 @@ import admin from "firebase-admin";
 
 const firestore = admin.firestore();
 const USERS_PATH = 'users';
+const FieldValue = admin.firestore.FieldValue;
 
 export type User = {
     id:string,
@@ -72,6 +73,31 @@ export default class UserModel{
         const _userSnap = await dao.where("google_uid","==",uid).limit(1).fetch();
         return _userSnap[0].id;
     }
+
+    addValueToList = async (
+        uid:string,
+        field:string,
+        value:string
+    ):Promise<boolean> => {
+        const id = await this.getId(uid);
+        if(id !== undefined ) {
+            try {
+                await dao.update({
+                    id: id,
+                    [field]: FieldValue.arrayUnion(value)
+                });
+                return true;
+            }catch (e) {
+                console.error(e.toString());
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+
+
 
     /*async update(){
 
