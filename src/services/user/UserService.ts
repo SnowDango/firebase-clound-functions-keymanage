@@ -64,7 +64,7 @@ export default class UserService {
         }
     }
 
-    tokenResult = (result:number,res:any) => {
+    private tokenResult = (result:number,res:any) => {
         switch (result) {
             case 0:
                 response.send(res, responseCode.SUCCESS, null, null);
