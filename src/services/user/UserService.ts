@@ -8,6 +8,8 @@ const failedCode = responseController.FailedCode;
 
 export default class UserService {
 
+    //TODO User操作のチャンネル作成
+
     create = async (body: any,res: any) => {
         const uid = body.uid;
         const email = body.email;
@@ -44,6 +46,23 @@ export default class UserService {
         const uid = body.uid;
         const _user = await model.getUserDataSingle(uid);
         return _user !== undefined;
+    }
+
+    addToken = async (body:any,res:any) => {
+        const uid = body.uid;
+        const token = body.token;
+        const _addResult = await model.addValueToList(uid,"tokens",token);
+        switch (_addResult) {
+            case 0:
+                response.send(res, responseCode.SUCCESS, null, null);
+                break;
+            case 1:
+                response.send(res, responseCode.FAILED, failedCode.DATABASE_ERROR, null);
+                break;
+            case 2:
+                response.send(res, responseCode.FAILED, failedCode.USER_NOT_FOUND, null);
+                break;
+        }
     }
 
     /*async removeToken(){

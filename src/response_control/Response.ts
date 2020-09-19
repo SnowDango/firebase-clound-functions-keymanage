@@ -8,7 +8,8 @@ export enum ResponseCode {
 export enum FailedCode {
     DATABASE_ERROR,
     NO_JOIN_INTO_CHANNEL,
-    ALREADY_EXIST
+    ALREADY_EXIST,
+    USER_NOT_FOUND
 }
 
 export default class Response {
@@ -33,7 +34,7 @@ export default class Response {
         res:express.Response,
         state:ResponseCode,
         code:FailedCode|null,
-        keyState:bigint,
+        keyState:number,
         message:string
     ){
         const _body = {state:state,code:code,key_state:keyState,message:message};

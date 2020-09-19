@@ -78,7 +78,7 @@ export default class UserModel{
         uid:string,
         field:string,
         value:string
-    ):Promise<boolean> => {
+    ):Promise<number> => {
         const id = await this.getId(uid);
         if(id !== undefined ) {
             try {
@@ -86,13 +86,13 @@ export default class UserModel{
                     id: id,
                     [field]: FieldValue.arrayUnion(value)
                 });
-                return true;
+                return 0;
             }catch (e) {
                 console.error(e.toString());
-                return false;
+                return 1;
             }
         }else{
-            return false;
+            return 2;
         }
     }
 
@@ -100,19 +100,19 @@ export default class UserModel{
 
 
     /*async update(){
-
+    TODO フィールドの単一データのアップデート関数　
     }
 
     async remove(){
-
+    TODO ユーザー削除の関数
     }*/
 
 
     /*async getUserName():string{
-
+    TODO　ユーザー名の取得関数
     }
 
     async getToken():string[]{
-
+    TODO トークンの取得関数
     }*/
 }
