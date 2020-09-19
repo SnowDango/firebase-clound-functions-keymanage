@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/models/user/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/UserModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/user/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user/UserService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

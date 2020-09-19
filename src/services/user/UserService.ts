@@ -40,24 +40,32 @@ export default class UserService {
         const uid = body.uid;
         const token = body.token;
         const _addResult = await model.addValueToList(uid,"tokens",token);
-        switch (_addResult) {
-            case 0:
-                response.send(res, responseCode.SUCCESS, null, null);
-                break;
-            case 1:
-                response.send(res, responseCode.FAILED, failedCode.DATABASE_ERROR, null);
-                break;
-            case 2:
-                response.send(res, responseCode.FAILED, failedCode.USER_NOT_FOUND, null);
-                break;
-        }
+        this.tokenResult(_addResult,res);
     }
 
     removeToken = async (body:any,res:any) => {
         const uid = body.uid;
         const token = body.token;
         const _removeResult = await model.removeValueToList(uid,"tokens",token);
-        switch (_removeResult) {
+        this.tokenResult(_removeResult,res);
+    }
+
+
+    updateToken = async (body:any,res:any) => {
+        const uid = body.uid;
+        const oldToken = body.old_token;
+        const newToken = body.new_token;
+        const _addResult = await model.addValueToList(uid,"tokens",newToken);
+        if(_addResult === 0){
+            const _removeResult = await model.removeValueToList(uid,"tokens",oldToken);
+            this.tokenResult(_removeResult,res);
+        }else{
+            this.tokenResult(_addResult,res);
+        }
+    }
+
+    tokenResult = (result:number,res:any) => {
+        switch (result) {
             case 0:
                 response.send(res, responseCode.SUCCESS, null, null);
                 break;
@@ -71,10 +79,6 @@ export default class UserService {
     }
 
     /*
-    async updateToken(){
-
-    }
-
     async updateName(){
 
     }*/
