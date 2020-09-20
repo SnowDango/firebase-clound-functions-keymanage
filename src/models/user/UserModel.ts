@@ -118,13 +118,28 @@ export default class UserModel{
         }
     }
 
-
-
-
-    /*async update(){
-    TODO フィールドの単一データのアップデート関数　
+    updateValue = async (
+        uid:string,
+        field:string,
+        value:string
+    ):Promise<number> => {
+        const _id = await this.getId(uid);
+        if(_id !== undefined){
+            try{
+                await dao.update({
+                    id: _id,
+                    [field]:value
+                });
+                return 0;
+            }catch (e) {
+                return 1;
+            }
+        }else{
+            return 2;
+        }
     }
 
+    /*
     async remove(){
     TODO ユーザー削除の関数
     }*/
