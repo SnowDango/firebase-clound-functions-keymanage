@@ -5,7 +5,8 @@ enum UserRouteCode{
     UPDATE_TOKEN,
     ADD_TOKEN,
     REMOVE_TOKEN,
-    CHANGE_NAME
+    CHANGE_NAME,
+    REMOVE_USER
 }
 
 
@@ -36,6 +37,9 @@ exports.userRoutes = (req:any,res:any) => {
             break;
         case UserRouteCode.CHANGE_NAME:
             service.changeName(body,res).then().catch();
+            break;
+        case UserRouteCode.REMOVE_USER:
+            service.removeUser(body,res).then().catch();
             break;
     }
 }

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600576339863</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="[add] model -&gt; ユーザーの削除関数の追加">
+      <created>1600577299828</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600577299828</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[add] service -&gt;　削除関数の追加">
+      <created>1600577490220</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600577490220</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,13 +150,15 @@
     <MESSAGE value="[fixed]　token関係のserviceのresをまとめた関数の実装&#10;[add] service -&gt; updateTokenの実装&#10;[add] route -&gt; Token更新の実装" />
     <MESSAGE value="[add] UserModel.ts -&gt; 単一データのアップデート関数の追加" />
     <MESSAGE value="[add] route 名前変更用ルートの追加" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] route 名前変更用ルートの追加" />
+    <MESSAGE value="[add] model -&gt; ユーザーの削除関数の追加" />
+    <MESSAGE value="[add] service -&gt;　削除関数の追加" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] service -&gt;　削除関数の追加" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="9" key="CommitChangelistDialog2" timestamp="1600575528672">
+    <state x="297" y="9" key="CommitChangelistDialog2" timestamp="1600577490128">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="297" y="9" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600575528672" />
+    <state x="297" y="9" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600577490128" />
     <state x="590" y="354" key="Github.ShareDialog" timestamp="1600499701344">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -156,9 +171,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600576387042" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600493362149">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600577316688">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600493362149" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600577316688" />
   </component>
 </project>
