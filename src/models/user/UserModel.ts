@@ -136,10 +136,22 @@ export default class UserModel{
         }
     }
 
-    /*
-    async remove(){
-    TODO ユーザー削除の関数
-    }*/
+    remove = async (
+        uid:string
+    ):Promise<number> => {
+        const _id = await this.getId(uid);
+        if (_id !== undefined){
+            try {
+                await dao.delete(_id);
+                return 0;
+            }catch (e) {
+                return 1;
+            }
+        }else{
+            return 2;
+        }
+    }
+
 
 
     /*async getUserName():string{
