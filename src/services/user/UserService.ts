@@ -71,6 +71,12 @@ export default class UserService {
         this.updateResult(_changeResult,res);
     }
 
+    removeUser = async (body:any,res:any) => {
+        const uid = body.uid;
+        const _removeResult = await model.remove(uid);
+        this.updateResult(_removeResult,res);
+    }
+
     private updateResult = (result:number,res:any) => {
         switch (result) {
             case 0:
