@@ -40,14 +40,14 @@ export default class UserService {
         const uid = body.uid;
         const token = body.token;
         const _addResult = await model.addValueToList(uid,"tokens",token);
-        this.tokenResult(_addResult,res);
+        this.updateResult(_addResult,res);
     }
 
     removeToken = async (body:any,res:any) => {
         const uid = body.uid;
         const token = body.token;
         const _removeResult = await model.removeValueToList(uid,"tokens",token);
-        this.tokenResult(_removeResult,res);
+        this.updateResult(_removeResult,res);
     }
 
 
@@ -58,13 +58,20 @@ export default class UserService {
         const _addResult = await model.addValueToList(uid,"tokens",newToken);
         if(_addResult === 0){
             const _removeResult = await model.removeValueToList(uid,"tokens",oldToken);
-            this.tokenResult(_removeResult,res);
+            this.updateResult(_removeResult,res);
         }else{
-            this.tokenResult(_addResult,res);
+            this.updateResult(_addResult,res);
         }
     }
 
-    private tokenResult = (result:number,res:any) => {
+    changeName = async (body:any,res:any) => {
+        const uid = body.uid;
+        const newName = body.name;
+        const _changeResult = await model.updateValue(uid,"name",newName);
+        this.updateResult(_changeResult,res);
+    }
+
+    private updateResult = (result:number,res:any) => {
         switch (result) {
             case 0:
                 response.send(res, responseCode.SUCCESS, null, null);
@@ -77,9 +84,4 @@ export default class UserService {
                 break;
         }
     }
-
-    /*
-    async updateName(){
-
-    }*/
 }

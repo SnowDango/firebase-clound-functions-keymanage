@@ -10,8 +10,7 @@ export type User = {
     google_uid:string,
     name:string,
     email:string,
-    tokens:string[],
-    join_channels:string[]
+    tokens:string[]
 }
 
 const firestoreSimple = new FirestoreSimple(firestore);
@@ -22,8 +21,7 @@ const dao = firestoreSimple.collection<User>({
             google_uid:user.google_uid,
             name:user.name,
             email:user.email,
-            tokens:user.tokens,
-            join_channels:user.join_channels
+            tokens:user.tokens
         }
     },
     decode:(doc) => {
@@ -32,8 +30,7 @@ const dao = firestoreSimple.collection<User>({
             google_uid: doc.google_uid,
             name: doc.name,
             email: doc.email,
-            tokens: doc.tokens,
-            join_channels:doc.join_channels
+            tokens: doc.tokens
         }
     }
 });
@@ -46,7 +43,7 @@ export default class UserModel{
         email:string,
         name:string
     ) :Promise<boolean> => {
-        const _data = {google_uid:uid,name:name,email:email,tokens:[token],join_channels:[]};
+        const _data = {google_uid:uid,name:name,email:email,tokens:[token]};
         const _id = await dao.add(_data);
         return !!_id;
     }

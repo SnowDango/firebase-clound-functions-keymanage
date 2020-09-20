@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="[fixed]　token関係のserviceのresをまとめた関数の実装&#10;[add] service -&gt; updateTokenの実装&#10;[add] route -&gt; Token更新の実装">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/services/user/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user/UserService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +12,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add/update_token" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,6 +57,7 @@
       <workItem from="1600492553284" duration="13458000" />
       <workItem from="1600508950728" duration="116000" />
       <workItem from="1600527653969" duration="874000" />
+      <workItem from="1600575238114" duration="615000" />
     </task>
     <task id="LOCAL-00001" summary="[add] UserModel.tsにuidListで一括取得できる関数の実装">
       <created>1600504090757</created>
@@ -107,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600530241616</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[add] UserModel.ts -&gt; 単一データのアップデート関数の追加">
+      <created>1600575528878</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600575528878</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,13 +127,14 @@
     <MESSAGE value="[add] フィールドの要素を追加する関数" />
     <MESSAGE value="[update] package-lock.json node-forge version" />
     <MESSAGE value="[fixed]　token関係のserviceのresをまとめた関数の実装&#10;[add] service -&gt; updateTokenの実装&#10;[add] route -&gt; Token更新の実装" />
-    <option name="LAST_COMMIT_MESSAGE" value="[fixed]　token関係のserviceのresをまとめた関数の実装&#10;[add] service -&gt; updateTokenの実装&#10;[add] route -&gt; Token更新の実装" />
+    <MESSAGE value="[add] UserModel.ts -&gt; 単一データのアップデート関数の追加" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] UserModel.ts -&gt; 単一データのアップデート関数の追加" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="9" key="CommitChangelistDialog2" timestamp="1600531169913">
+    <state x="297" y="9" key="CommitChangelistDialog2" timestamp="1600575528672">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="297" y="9" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600531169913" />
+    <state x="297" y="9" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600575528672" />
     <state x="590" y="354" key="Github.ShareDialog" timestamp="1600499701344">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
