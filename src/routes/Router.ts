@@ -34,6 +34,9 @@ exports.userRoutes = (req:any,res:any) => {
         case UserRouteCode.UPDATE_TOKEN:
             service.updateToken(body,res).then().catch();
             break;
+        case UserRouteCode.CHANGE_NAME:
+            service.changeName(body,res).then().catch();
+            break;
     }
 }
 exports.channelRoutes = (req:any,res:any) => {
