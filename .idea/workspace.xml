@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/Router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +38,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -58,6 +61,7 @@
       <workItem from="1600508950728" duration="116000" />
       <workItem from="1600527653969" duration="874000" />
       <workItem from="1600575238114" duration="615000" />
+      <workItem from="1600626223091" duration="2561000" />
     </task>
     <task id="LOCAL-00001" summary="[add] UserModel.tsにuidListで一括取得できる関数の実装">
       <created>1600504090757</created>
@@ -167,10 +171,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="501" y="162" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1600499799470" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1600576387042">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1600577613483">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600576387042" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600577613483" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600577316688">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
