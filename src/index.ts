@@ -1,16 +1,18 @@
 import * as functions from 'firebase-functions';
 import * as express from 'express';
 import admin from "firebase-admin";
-admin.initializeApp(functions.config().firebase);
+import * as Router from "./routes/Router";
 
-const routes = require('./routes/Router');
+admin.initializeApp(functions.config().firebase);
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const routes = new Router.default();
+
 const router: express.Router = express.Router();
-router.post('/user',(req, res) => {
+router.post('/user',(req:Express.Response, res:Express.Response) => {
     routes.userRoutes(req,res);
 });
 

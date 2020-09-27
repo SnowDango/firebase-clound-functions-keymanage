@@ -1,16 +1,5 @@
 import express from 'express';
-
-export enum ResponseCode {
-    SUCCESS,
-    FAILED
-}
-
-export enum FailedCode {
-    DATABASE_ERROR,
-    NO_JOIN_INTO_CHANNEL,
-    ALREADY_EXIST,
-    USER_NOT_FOUND
-}
+import {ResponseCode,FailedCode} from "./ResponseCode";
 
 export default class Response {
 
@@ -20,16 +9,35 @@ export default class Response {
         code:FailedCode|null,
         data:string|null
     ){
-        const _body = {state:state,code:code,data:data};
-        if(code === null){
-            delete _body.code;
-        }
         if(data === null){
-            delete _body.data;
+            if(state === ResponseCode.SUCCESS){
+                this.sendSuccess(res);
+            }else if(state === ResponseCode.INCORRECT_CLIENT){
+                this.sendFailedClient(res);
+            }else if(state === ResponseCode.FAILED){
+                this.sendFailedServer(res,code);
+            }
         }
-        res.send(_body);
     }
 
+    private sendSuccess = (
+        res:express.Response
+    ) => {
+        res.status(200);
+    }
+
+    private sendFailedServer = (
+        res: express.Response,
+        code: FailedCode|null ) => {
+        res.status(500).json({code:code});
+    }
+
+    private sendFailedClient = (
+        res:express.Response
+    ) => {
+        res.status(400);
+
+    }
     public sendKey(
         res:express.Response,
         state:ResponseCode,

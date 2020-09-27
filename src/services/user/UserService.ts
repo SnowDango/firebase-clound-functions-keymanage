@@ -1,32 +1,34 @@
 import * as UserModel from '../../models/user/UserModel';
-import * as responseController from '../../response_control/Response';
+import {FailedCode, ResponseCode} from "../../response_control/ResponseCode";
 
 const model = new UserModel.default();
-const response = new responseController.default();
-const responseCode = responseController.ResponseCode;
-const failedCode = responseController.FailedCode;
 
 export default class UserService {
 
     //TODO User操作のチャンネル作成
 
-    create = async (body: any,res: any) => {
+    create = async (body: any):Promise<{responseCode:number,failedCode:number|null}> => {
         const uid = body.uid;
         const email = body.email;
         const token = body.token;
         const name = body.name;
 
-        const _userIsExist = await this.isExist(body);
+        if(this.isElement([uid,email,token,name])) {
 
-        if (!_userIsExist) {
-            const _result = await model.create(uid,token,email,name);
-            if (_result) {
-                response.send(res, responseCode.SUCCESS, null, null);
+            const _userIsExist = await this.isExist(body);
+
+            if (!_userIsExist) {
+                const _result = await model.create(uid, token, email, name);
+                if (_result) {
+                    return {responseCode: ResponseCode.SUCCESS, failedCode: null};
+                } else {
+                    return {responseCode: ResponseCode.SUCCESS, failedCode: FailedCode.DATABASE_ERROR};
+                }
             } else {
-                response.send(res, responseCode.FAILED, failedCode.DATABASE_ERROR, null);
+                return {responseCode: ResponseCode.FAILED, failedCode: FailedCode.ALREADY_EXIST};
             }
-        } else {
-            response.send(res, responseCode.FAILED, failedCode.ALREADY_EXIST, null);
+        }else{
+            return {responseCode:ResponseCode.INCORRECT_CLIENT,failedCode:null};
         }
     }
 
@@ -36,58 +38,94 @@ export default class UserService {
         return _user !== undefined;
     }
 
-    addToken = async (body:any,res:any) => {
+    addToken = async (body: any):Promise<{responseCode:number,failedCode:number|null}> => {
         const uid = body.uid;
         const token = body.token;
-        const _addResult = await model.addValueToList(uid,"tokens",token);
-        this.updateResult(_addResult,res);
+        if(this.isElement([uid,token])) {
+            const _addResult = await model.addValueToList(uid, "tokens", token);
+            return this.updateResult(_addResult);
+        }else{
+            return {responseCode:ResponseCode.INCORRECT_CLIENT,failedCode:null};
+        }
     }
 
-    removeToken = async (body:any,res:any) => {
+    removeToken = async (body: any):Promise<{responseCode:number,failedCode:number|null}> => {
         const uid = body.uid;
         const token = body.token;
-        const _removeResult = await model.removeValueToList(uid,"tokens",token);
-        this.updateResult(_removeResult,res);
+        if(this.isElement([uid,token])) {
+            const _removeResult = await model.removeValueToList(uid, "tokens", token);
+            return this.updateResult(_removeResult);
+        }else{
+            return {responseCode:ResponseCode.INCORRECT_CLIENT,failedCode:null};
+        }
     }
 
 
-    updateToken = async (body:any,res:any) => {
+    updateToken = async (body: any):Promise<{responseCode:number,failedCode:number|null}> => {
         const uid = body.uid;
         const oldToken = body.old_token;
         const newToken = body.new_token;
-        const _addResult = await model.addValueToList(uid,"tokens",newToken);
-        if(_addResult === 0){
-            const _removeResult = await model.removeValueToList(uid,"tokens",oldToken);
-            this.updateResult(_removeResult,res);
+        if(this.isElement([uid,oldToken,newToken])) {
+            const _addResult = await model.addValueToList(uid, "tokens", newToken);
+            if (_addResult === 0) {
+                const _removeResult = await model.removeValueToList(uid, "tokens", oldToken);
+                return this.updateResult(_removeResult);
+            } else {
+                return this.updateResult(_addResult);
+            }
         }else{
-            this.updateResult(_addResult,res);
+            return {responseCode:ResponseCode.INCORRECT_CLIENT,failedCode:null};
         }
     }
 
-    changeName = async (body:any,res:any) => {
+    changeName = async (body: any):Promise<{responseCode:number,failedCode:number|null}> => {
         const uid = body.uid;
         const newName = body.name;
-        const _changeResult = await model.updateValue(uid,"name",newName);
-        this.updateResult(_changeResult,res);
+
+        if(this.isElement([uid,newName])) {
+            const _changeResult = await model.updateValue(uid, "name", newName);
+            return this.updateResult(_changeResult);
+        }else{
+            return {responseCode:ResponseCode.INCORRECT_CLIENT,failedCode:null};
+        }
     }
 
-    removeUser = async (body:any,res:any) => {
+    removeUser = async (body: any):Promise<{responseCode:number,failedCode:number|null}> => {
         const uid = body.uid;
-        const _removeResult = await model.remove(uid);
-        this.updateResult(_removeResult,res);
+        if(this.isElement([uid])) {
+            const _removeResult = await model.remove(uid);
+            return this.updateResult(_removeResult);
+        }else {
+            return {responseCode:ResponseCode.INCORRECT_CLIENT,failedCode:null};
+        }
     }
 
-    private updateResult = (result:number,res:any) => {
+    private updateResult = (result: number):{responseCode:number,failedCode:number|null} => {
+
+        const _returnData: { responseCode: ResponseCode, failedCode: FailedCode | null } = {
+            responseCode: ResponseCode.SUCCESS,
+            failedCode: null
+        };
+
         switch (result) {
             case 0:
-                response.send(res, responseCode.SUCCESS, null, null);
+                _returnData["responseCode"] = ResponseCode.SUCCESS;
+                _returnData["failedCode"] = null;
                 break;
             case 1:
-                response.send(res, responseCode.FAILED, failedCode.DATABASE_ERROR, null);
+                _returnData["responseCode"] = ResponseCode.FAILED;
+                _returnData["failedCode"] = FailedCode.DATABASE_ERROR;
                 break;
             case 2:
-                response.send(res, responseCode.FAILED, failedCode.USER_NOT_FOUND, null);
+                _returnData["responseCode"] = ResponseCode.FAILED;
+                _returnData["failedCode"] = FailedCode.USER_NOT_FOUND;
                 break;
         }
+        return _returnData;
+    }
+
+    private isElement = (elements:any[]):boolean => {
+        const _findResult = elements.find(element => element === undefined||null);
+        return _findResult !== undefined;
     }
 }

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/routes/Router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.ts" afterDir="false" />
-    </list>
+    <list default="true" id="1121d758-f7da-451a-906d-248d9cfb481c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -36,6 +41,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -58,6 +64,8 @@
       <workItem from="1600508950728" duration="116000" />
       <workItem from="1600527653969" duration="874000" />
       <workItem from="1600575238114" duration="615000" />
+      <workItem from="1600626223091" duration="3445000" />
+      <workItem from="1601214622354" duration="5710000" />
     </task>
     <task id="LOCAL-00001" summary="[add] UserModel.tsにuidListで一括取得できる関数の実装">
       <created>1600504090757</created>
@@ -136,7 +144,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600577490220</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[fixed]　コードの整理">
+      <created>1600790259347</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600790259347</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[fixed] responseアーキテクチャーの変更　service -&gt; routes -&gt; response">
+      <created>1601220596843</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1601220596843</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,13 +174,19 @@
     <MESSAGE value="[add] route 名前変更用ルートの追加" />
     <MESSAGE value="[add] model -&gt; ユーザーの削除関数の追加" />
     <MESSAGE value="[add] service -&gt;　削除関数の追加" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] service -&gt;　削除関数の追加" />
+    <MESSAGE value="[fixed]　コードの整理" />
+    <MESSAGE value="[fixed] responseアーキテクチャーの変更　service -&gt; routes -&gt; response" />
+    <option name="LAST_COMMIT_MESSAGE" value="[fixed] responseアーキテクチャーの変更　service -&gt; routes -&gt; response" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="9" key="CommitChangelistDialog2" timestamp="1600577490128">
+    <state x="294" y="22" width="846" height="824" key="CommitChangelistDialog2" timestamp="1601220708767">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="297" y="9" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600577490128" />
+    <state x="294" y="22" width="846" height="824" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1601220708766" />
+    <state x="144" y="62" key="DiffContextDialog" timestamp="1600790217981">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="144" y="62" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600790217981" />
     <state x="590" y="354" key="Github.ShareDialog" timestamp="1600499701344">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -167,10 +195,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="501" y="162" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1600499799470" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1600576387042">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1600577613483">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600576387042" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600577613483" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600790176199">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1600790176199" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600577316688">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
