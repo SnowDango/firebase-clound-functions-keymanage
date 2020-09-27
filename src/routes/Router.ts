@@ -1,22 +1,6 @@
 import UserService from '../services/user/UserService';
 import Response from "../response_control/Response";
-
-enum UserRouteCode{
-    CREATE,
-    UPDATE_TOKEN,
-    ADD_TOKEN,
-    REMOVE_TOKEN,
-    CHANGE_NAME,
-    REMOVE_USER
-}
-
-
-enum ChannelRouteCode {
-    CREATE,
-    UPDATE_KEY,
-    CHANGE_PASS,
-    ADD_USER
-}
+import {UserRouteCode,ChannelRouteCode} from "./RouteCode";
 
 const response = new Response();
 
